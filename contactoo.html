@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Contáctanos - Tienda Angel HLC</title>
+</head>
+
+<body bgcolor="#e8f4fd">
+
+<!-- ENCABEZADO -->
+<table width="100%" bgcolor="#0d47a1" cellpadding="12" cellspacing="0">
+<tr>
+<td align="center">
+<font face="Georgia" size="6" color="#ffffff"><b>Tienda Angel HLC</b></font><br>
+<font face="Arial" size="2" color="#bbdefb">Tu tienda de productos premium</font>
+</td>
+</tr>
+</table>
+
+<!-- MENÚ -->
+<table width="100%" bgcolor="#1565ce" cellpadding="10" cellspacing="0">
+<tr>
+<td align="center">
+<font face="Arial" size="4">
+<a href="index.html" style="color:#ffffff; text-decoration:none;">Productos</a>
+&nbsp;&nbsp; | &nbsp;&nbsp;
+<a href="nosotros.html" style="color:#ffffff; text-decoration:none;">Nosotros</a>
+&nbsp;&nbsp; | &nbsp;&nbsp;
+<a href="contacto.html" style="color:#ffffff; text-decoration:none;"><b>Contáctanos</b></a>
+</font>
+</td>
+</tr>
+</table>
+
+<br>
+
+<!-- TÍTULO -->
+<center>
+<font face="Georgia" size="5" color="#0d47a1"><b>Contáctanos</b></font>
+<br><br>
+<font face="Arial" size="3" color="#1565c0">
+¿Tienes dudas o sugerencias? Llena el formulario y te responderemos lo antes posible.
+</font>
+</center>
+
+<br><br>
+
+<center>
+<table width="85%" cellpadding="15" cellspacing="0">
+<tr valign="top">
+
+<!-- INFORMACIÓN DE CONTACTO -->
+<td width="35%">
+
+<table width="100%" bgcolor="#1565ce" cellpadding="8">
+<tr>
+<td>
+<font face="Arial" size="3" color="#ffffff"><b>Información de contacto</b></font>
+</td>
+</tr>
+</table>
+
+<table width="100%" bgcolor="#ffffff" border="1" bordercolor="#90caf9" cellpadding="15">
+<tr>
+<td>
+<font face="Arial" size="3" color="#1565c0">
+
+<b>📧 Email:</b><br>
+lopezcarrilloangel75@gmail.com<br><br>
+
+<b>📞 Teléfono:</b><br>
++52 7294462898<br><br>
+
+<b>🕐 Horario:</b><br>
+Lunes – Viernes<br>
+9:00 – 18:00 hrs<br><br>
+
+<b>📍 Ubicación:</b><br>
+Toluca, San pablo edomex 
+
+</font>
+</td>
+</tr>
+</table>
+
+</td>
+
+<!-- FORMULARIO -->
+<td width="65%">
+
+<table width="100%" bgcolor="#1565ce" cellpadding="8">
+<tr>
+<td>
+<font face="Arial" size="3" color="#ffffff"><b>Envíanos un mensaje</b></font>
+</td>
+</tr>
+</table>
+
+<table width="100%" bgcolor="#ffffff" border="1" bordercolor="#90caf9" cellpadding="15">
+<tr>
+<td>
+
+<font face="Arial" size="3">
+
+<table width="100%">
+<tr>
+<td width="48%">
+<b>Nombre: *</b><br>
+<input type="text" id="nombre" style="width:100%; padding:6px;">
+</td>
+
+<td width="4%"></td>
+
+<td width="48%">
+<b>Apellido:</b><br>
+<input type="text" id="apellido" style="width:100%; padding:6px;">
+</td>
+</tr>
+</table>
+
+<br>
+
+<b>Correo electrónico: *</b><br>
+<input type="email" id="email" style="width:100%; padding:6px;">
+
+<br><br>
+
+<b>Asunto:</b><br>
+<select id="asunto" style="width:100%; padding:6px;">
+<option value="">-- Selecciona un asunto --</option>
+<option value="pedido">Consulta sobre pedido</option>
+<option value="producto">Información de producto</option>
+<option value="devolucion">Devoluciones</option>
+<option value="otro">Otro</option>
+</select>
+
+<br><br>
+
+<b>Mensaje: *</b><br>
+<textarea id="mensaje" rows="6" style="width:100%; padding:6px;"></textarea>
+
+<br><br>
+
+<center>
+<input type="button" value="Enviar mensaje"
+onclick="enviarCorreo()"
+style="background-color:#1565ce; color:#ffffff; border:none; padding:10px 30px; cursor:pointer;">
+</center>
+
+<br>
+<center>
+<font id="aviso" color="#0d47a1"></font>
+</center>
+
+</font>
+
+</td>
+</tr>
+</table>
+
+</td>
+
+</tr>
+</table>
+</center>
+
+<br><br>
+
+<!-- PIE DE PÁGINA -->
+<table width="100%" bgcolor="#1565ce" cellpadding="10">
+<tr>
+<td align="center">
+<font face="Arial" size="2" color="#ffffff">
+© 2026 Angel HLC - Todos los derechos reservados
+</font>
+</td>
+</tr>
+</table>
+
+<script>
+function enviarCorreo(){
+
+var nombre=document.getElementById("nombre").value.trim();
+var apellido=document.getElementById("apellido").value.trim();
+var email=document.getElementById("email").value.trim();
+var asunto=document.getElementById("asunto").value;
+var mensaje=document.getElementById("mensaje").value.trim();
+
+if(!nombre || !email || !mensaje){
+alert("Por favor completa los campos obligatorios (*).");
+return;
+}
+
+var asuntoTexto = asunto ? "["+asunto.toUpperCase()+"] " : "";
+var cuerpo="Nombre: "+nombre+" "+apellido+
+"%0AEmail: "+email+
+"%0A%0A"+mensaje;
+
+var mailto="mailto:contacto@angelhlc.com"
++"?subject="+asuntoTexto+"Mensaje desde la página web"
++"&body="+cuerpo;
+
+window.location.href=mailto;
+
+document.getElementById("aviso").innerHTML="<b>¡Listo!</b> Se abrirá tu cliente de correo para enviar el mensaje.";
+}
+</script>
+
+</body>
+</html>
